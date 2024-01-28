@@ -1,21 +1,26 @@
 #!/usr/bin/node
-// Salama-Jamal (103-object_fct.js
+// Salama-Jamal (103-object_fct.js)
 const myObject = {
-  type: "object",
-  value: 12,
+  type: 'object',
+  value: 12
 };
 console.log(myObject);
 
-// Add the "incr" method to the "myObject" object.
-myObject.incr = function () {
-  if (typeof this.value === "number") {
-    this.value++;
+myObject.incr = function() {
+  myObject.value += 1;
+};
+
+myObject.incr();
+console.log(myObject);
+myObject.incr();
+console.log(myObject);
+myObject.incr();
+console.log(myObject);
+
+function formatObject(obj) {
+  const formattedObject = JSON.parse(JSON.stringify(obj));
+  if (formattedObject.incr && formattedObject.incr instanceof Function) {
+    formattedObject.incr = '[Function]';
   }
-};
-
-myObject.incr();
-console.log(myObject);
-myObject.incr();
-console.log(myObject);
-myObject.incr();
-console.log(myObject);
+  return formattedObject;
+}
