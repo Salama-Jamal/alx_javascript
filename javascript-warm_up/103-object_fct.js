@@ -6,8 +6,10 @@ const myObject = {
   value: 12,
 };
 
-myObject.value = 89
-  console.log(myObject);
+console.log(myObject);
+
+myObject.incr = function () {
+  this.value++;
 };
 myObject.incr();
 console.log(myObject);
